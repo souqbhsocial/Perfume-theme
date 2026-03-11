@@ -1,0 +1,61 @@
+<section id="collection-page" class="bg-brand-dark min-h-screen py-32 relative">
+    <div class="noise-overlay"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            {% if collection.title %}
+              <h2 class="font-arabic text-4xl md:text-5xl text-brand-cream mb-4">{{ collection.title }}</h2>
+              {% if collection.description != blank %}
+                <h3 class="font-display italic text-xl text-brand-gold">{{ collection.description }}</h3>
+              {% endif %}
+            {% else %}
+              <h2 class="font-arabic text-4xl md:text-5xl text-brand-cream mb-4">المجموعة</h2>
+              <h3 class="font-display italic text-xl text-brand-gold">Collection</h3>
+            {% endif %}
+        </div>
+        
+        <div id="c-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {% for product in collection.products %}
+                <a href="{{ product.url }}" class="group relative overflow-hidden bg-brand-dark/50 border border-brand-gold/10 hover:border-brand-gold/40 transition-colors p-6 md:p-8 flex flex-col items-center text-center cursor-pointer block">
+                    
+                    {%- assign primary_tag = product.tags | first -%}
+                    {% if primary_tag %}
+                        <span class="absolute top-4 right-4 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 text-[10px] tracking-widest px-3 py-1 rounded-sm uppercase font-modern z-10 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                            {{ primary_tag }}
+                        </span>
+                    {% endif %}
+
+                    <div class="w-full aspect-square mb-6 relative z-0 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-full blur-2xl"></div>
+                        {% if product.featured_image %}
+                          <img src="{{ product.featured_image | img_url: '400x400' }}" alt="{{ product.title | escape }}" class="w-3/4 h-3/4 object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl z-10 relative">
+                        {% else %}
+                          <span class="text-6xl z-10 relative transition-transform duration-700 group-hover:scale-110">🪵</span>
+                        {% endif %}
+                    </div>
+
+                    <h3 class="font-arabic text-2xl md:text-3xl text-brand-cream mb-2">{{ product.title }}</h3>
+                    <div class="font-mono text-sm text-brand-gold font-bold mt-4 flex items-center gap-2">
+                        {{ product.price | money }} 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-500 delay-100" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                </a>
+            {% else %}
+                <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20 text-brand-cream/50">
+                    <p>No products found in this collection.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Main",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection Main"
+    }
+  ]
+}
+{% endschema %}

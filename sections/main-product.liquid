@@ -1,0 +1,76 @@
+<section id="cinematic-product-view" class="relative min-h-[100dvh] h-auto pb-[80px] bg-brand-dark overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1A1208] via-[#0D0A05] to-[#0F0C06] opacity-80 z-0"></div>
+    <div class="noise-overlay z-0"></div>
+    <div class="cinematic-vignette z-0"></div>
+
+    <div class="relative z-10 flex flex-col md:flex-row w-full h-auto min-h-screen">
+        <!-- Visual Container (Left) -->
+        <div class="w-full md:w-[45%] h-auto min-h-[40vh] md:min-h-[100dvh] flex flex-col items-center justify-center relative pt-16 md:pt-24 lg:pt-32">
+            <div class="product-glow"></div>
+            <div class="product-icon-container show">
+                {% if product.featured_image %}
+                    <img src="{{ product.featured_image | img_url: '800x800' }}" alt="{{ product.title | escape }}" class="w-3/4 h-3/4 object-contain drop-shadow-2xl relative z-10">
+                {% else %}
+                    <span class="text-8xl relative z-10">🪵</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Info Container (Right) -->
+        <div class="w-full md:w-[55%] h-auto overflow-y-visible flex flex-col items-start gap-[20px] md:gap-0 p-[20px] px-[24px] pb-[100px] md:justify-start md:px-16 lg:px-24 relative md:pt-32 lg:pt-40 md:p-0">
+            
+            <div class="text-brand-cream/60 text-[10px] md:text-xs tracking-[0.25em] uppercase font-modern mb-6 md:mb-10">
+                <a href="{{ routes.collections_url }}" class="hover:text-brand-gold transition-colors">Collections</a> 
+                {% if collection %}
+                    <span class="text-brand-gold mx-2">◆</span> <a href="{{ collection.url }}" class="hover:text-brand-gold transition-colors">{{ collection.title }}</a>
+                {% endif %}
+            </div>
+
+            <h1 class="font-arabic text-4xl md:text-5xl lg:text-[64px] text-brand-cream mt-8 pt-10 mb-0 leading-[1.4] h-auto shrink-0 pb-4">
+                {{ product.title }}
+            </h1>
+            
+            <div class="font-body text-brand-cream/80 text-base md:text-[17px] leading-[1.8] md:leading-[1.9] max-w-[480px] mb-6 md:mb-8 mt-4">
+                {{ product.description }}
+            </div>
+
+            {% if product.tags.size > 0 %}
+            <div class="flex flex-wrap gap-3 md:gap-4 mb-8 md:mb-10">
+                {% for tag in product.tags %}
+                    <span class="border border-brand-gold py-1 px-4 rounded-full text-[10px] md:text-xs tracking-[0.1em] text-brand-cream uppercase whitespace-nowrap">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="flex flex-col mb-8 md:mb-12">
+                <div class="font-mono text-xl md:text-2xl font-bold text-brand-gold">
+                    {{ product.price | money }}
+                </div>
+            </div>
+
+            {% assign wa_message = "السلام عليكم، أرغب في الاستفسار عن " | append: product.title %}
+            <div class="w-auto inline-block mb-[60px] md:mb-0 shrink-0">
+                <a href="https://wa.me/971547411813?text={{ wa_message | url_encode }}" target="_blank" class="lux-btn flex items-center gap-4 py-3 md:py-3.5 px-8 md:px-10 rounded-sm cursor-pointer group pointer-events-auto no-underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="lux-btn-content w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+                    <div class="lux-btn-content flex flex-col items-start text-left">
+                        <span class="font-arabic-sans text-base md:text-lg font-bold leading-none mb-1.5 group-hover:text-brand-dark">اطلب عبر واتساب</span>
+                        <span class="font-modern text-[8px] md:text-[9px] uppercase tracking-[0.25em] opacity-80 group-hover:opacity-100 transition-opacity">Order via WhatsApp</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Main",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Main"
+    }
+  ]
+}
+{% endschema %}
