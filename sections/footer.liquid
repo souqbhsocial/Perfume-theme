@@ -1,0 +1,39 @@
+<footer class="border-t border-brand-gold/20 pt-20 pb-10 px-6 text-center">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="font-arabic text-4xl text-brand-gold mb-2">الغرايف</h2>
+    <p class="font-display tracking-[0.2em] text-sm mb-12">AL GHARAYAF PERFUM</p>
+    
+    <div class="flex justify-center gap-8 mb-12">
+      <a href="https://instagram.com/algharayaf.perfume" class="text-brand-text-muted hover:text-brand-gold transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      </a>
+      <a href="https://wa.me/971547411813" class="text-brand-text-muted hover:text-brand-gold transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+      </a>
+    </div>
+    
+    <div class="flex flex-wrap justify-center gap-6 mb-12 text-sm text-brand-text-muted uppercase tracking-widest font-display">
+      <a href="#collections" class="hover:text-brand-gold">Collections</a>
+      <a href="#our-story" class="hover:text-brand-gold">Story</a>
+      <a href="#bespoke" class="hover:text-brand-gold">Bespoke</a>
+      <a href="#contact" class="hover:text-brand-gold">Contact</a>
+    </div>
+    
+    <div class="border-t border-brand-gold/10 pt-8 flex flex-col items-center text-sm text-brand-text-muted">
+      <p class="mb-2">© {{ 'now' | date: '%Y' }} الغرايف | Al Gharayaf Perfum</p>
+      <p class="italic font-display">Crafted with love in the UAE 🇦🇪</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

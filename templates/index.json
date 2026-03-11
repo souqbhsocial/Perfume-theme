@@ -1,0 +1,36 @@
+{
+  "name": "Home page",
+  "wrapper": "main",
+  "sections": {
+    "hero": {
+      "type": "hero"
+    },
+    "story": {
+      "type": "our-story"
+    },
+    "collections": {
+      "type": "collections"
+    },
+    "quote": {
+      "type": "quote"
+    },
+    "bespoke": {
+      "type": "bespoke"
+    },
+    "testimonials": {
+      "type": "testimonials"
+    },
+    "how_to_order": {
+      "type": "how-to-order"
+    }
+  },
+  "order": [
+    "hero",
+    "story",
+    "collections",
+    "quote",
+    "bespoke",
+    "testimonials",
+    "how_to_order"
+  ]
+}

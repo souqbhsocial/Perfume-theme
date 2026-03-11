@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@200;300;400;500;700;800;900&family=Outfit:wght@300;400;500;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+    {{ content_for_header }}
+
+    <style>
+      :root {
+        --color-brand-cream: #F5EDD8;
+        --color-brand-gold: #B8962E;
+        --color-brand-gold-light: #D4AF5A;
+        --color-brand-dark: #0D0A05;
+        --color-brand-text-dark: #1A1408;
+        --color-brand-text-muted: #8A7550;
+        --color-brand-border: rgba(184, 150, 46, 0.25);
+      }
+    </style>
+    {% render 'theme-styles' %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="bg-[#0D0A05] text-[#F5EDD8] antialiased selection:bg-[#B8962E] selection:text-[#0D0A05] font-body relative min-h-screen">
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <div class="hidden md:block">
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-ring" id="cursorRing"></div>
+      </div>
+      
+      {% sections 'header-group' %}
+      
+      {{ content_for_layout }}
+
+      {% sections 'footer-group' %}
+
+      <a href="https://wa.me/971547411813" id="whatsapp-btn" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg transition-all duration-500 z-50 hover:scale-110 translate-y-20 opacity-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+        <span class="absolute top-0 right-0 w-3 h-3 bg-white rounded-full animate-ping"></span>
+      </a>
+    </main>
+
+    {{ 'theme.js' | asset_url | script_tag }}
+  </body>
+</html>

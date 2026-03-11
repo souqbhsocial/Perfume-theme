@@ -1,0 +1,64 @@
+<nav id="site-header" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <div class="flex flex-col items-center">
+      <span class="font-arabic text-3xl text-brand-gold">الغرايف</span>
+      <span class="font-display text-xs tracking-[0.2em] text-brand-cream/80 mt-1">AL GHARAYAF PERFUM</span>
+    </div>
+    
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#collections" class="text-sm tracking-widest uppercase hover:text-brand-gold transition-colors relative group">
+        Collections
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#our-story" class="text-sm tracking-widest uppercase hover:text-brand-gold transition-colors relative group">
+        Our Story
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#bespoke" class="text-sm tracking-widest uppercase hover:text-brand-gold transition-colors relative group">
+        Bespoke
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#contact" class="text-sm tracking-widest uppercase hover:text-brand-gold transition-colors relative group">
+        Contact
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </div>
+
+    <a href="https://wa.me/971547411813" target="_blank" rel="noreferrer" class="hidden md:flex items-center gap-2 border border-brand-gold/50 px-5 py-2 rounded-full hover:bg-brand-gold hover:text-brand-dark transition-all">
+      <span class="font-arabic-sans text-sm">تواصل معنا</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+    </a>
+
+    <button id="mobile-menu-btn" class="md:hidden text-brand-gold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-md flex-col items-center justify-center space-y-8">
+  <div class="absolute top-6 right-6">
+    <button id="close-mobile-menu" class="text-brand-gold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <a href="#collections" class="mobile-link text-2xl font-display tracking-widest uppercase text-brand-cream">Collections</a>
+  <a href="#our-story" class="mobile-link text-2xl font-display tracking-widest uppercase text-brand-cream">Our Story</a>
+  <a href="#bespoke" class="mobile-link text-2xl font-display tracking-widest uppercase text-brand-cream">Bespoke</a>
+  <a href="#contact" class="mobile-link text-2xl font-display tracking-widest uppercase text-brand-cream">Contact</a>
+  <a href="https://wa.me/971547411813" class="flex items-center gap-2 bg-brand-gold text-brand-dark px-8 py-3 rounded-full mt-4">
+    <span class="font-arabic-sans">تواصل معنا</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}
