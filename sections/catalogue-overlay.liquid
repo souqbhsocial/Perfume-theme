@@ -1,4 +1,4 @@
-<div id="cinematic-overlay" class="fixed inset-0 z-[9999] hidden opacity-0 transition-opacity duration-800 h-[100dvh] w-[100vw] overflow-hidden" tabindex="0">
+<div id="cinematic-overlay" class="fixed top-0 left-0 w-[100vw] h-[100dvh] overflow-y-auto overflow-x-hidden z-[9999] hidden opacity-0 transition-opacity duration-800 bg-brand-dark" style="isolation: isolate; will-change: transform; -webkit-overflow-scrolling: touch;" tabindex="0">
     <div id="cinematic-bg-layer" class="absolute inset-0 transition-colors duration-1000 bg-brand-dark">
         <div class="absolute inset-0 bg-gradient-to-br from-[#1A1208] via-[#0D0A05] to-[#0F0C06] opacity-80"></div>
         <div class="noise-overlay"></div>
@@ -7,7 +7,7 @@
     <div class="cinematic-vignette" id="cinematic-vignette"></div>
 
     <!-- Top Navigation Layer -->
-    <div class="absolute top-0 w-full z-50 p-6 md:p-10 flex justify-between items-start pointer-events-none">
+    <div class="sticky top-0 w-full z-[100] p-6 md:p-10 flex justify-between items-start pointer-events-none bg-brand-dark/95 backdrop-blur-md" style="-webkit-backdrop-filter: blur(10px);">
         <button id="cinematic-back-btn" onclick="showCinematicGrid()" class="pointer-events-auto text-brand-cream hover:text-brand-gold transition-colors flex items-center gap-3 text-xs md:text-sm tracking-widest uppercase font-modern opacity-80 hover:opacity-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-4 h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             Collections
@@ -20,16 +20,16 @@
     </div>
 
     <!-- Product Slider View -->
-    <div id="cinematic-slider-view" class="absolute inset-0 z-30 flex flex-col md:flex-row w-full h-full pt-28 pb-32 md:pt-32 md:pb-32 pointer-events-none">
-        <div class="pointer-events-auto absolute inset-0 z-10 flex flex-col md:flex-row w-full h-full">
+    <div id="cinematic-slider-view" class="relative z-30 min-h-[100dvh] h-auto pb-[80px] pointer-events-none">
+        <div class="pointer-events-auto relative z-10 flex flex-col md:flex-row w-full h-auto">
         <!-- Visual Container (Left) -->
-        <div id="cinematic-visual-box" class="w-full md:w-[45%] h-[35%] md:h-full flex flex-col items-center justify-center relative slide-content pt-16 md:pt-24 lg:pt-32 mt-4 md:mt-8">
+        <div id="cinematic-visual-box" class="w-full md:w-[45%] h-auto min-h-[40vh] md:min-h-[100dvh] flex flex-col items-center justify-center relative slide-content pt-16 md:pt-24 lg:pt-32">
             <div class="product-glow"></div>
             <div id="cinematic-icon" class="product-icon-container cinematic-icon-enter"><span id="c-icon">🪵</span></div>
         </div>
 
         <!-- Info Container (Right) -->
-        <div id="cinematic-info-box" class="w-full md:w-[55%] h-[65%] md:h-full flex flex-col justify-start px-8 md:px-16 lg:px-24 slide-content relative overflow-y-auto no-scrollbar pb-8 md:pb-0 pt-24 md:pt-32 lg:pt-40">
+        <div id="cinematic-info-box" class="w-full md:w-[55%] h-auto overflow-y-visible flex flex-col items-start gap-[20px] md:gap-0 p-[20px] pb-[100px] md:justify-start md:px-16 lg:px-24 slide-content relative md:pt-32 lg:pt-40 md:p-0">
             
             <div id="c-breadcrumb" class="stagger-text delay-0 text-brand-cream/60 text-[10px] md:text-xs tracking-[0.25em] uppercase font-modern mb-6 md:mb-10">
                 <!-- Data -->
@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div id="c-action" class="stagger-text delay-5 w-auto inline-block mb-12 md:mb-0 shrink-0">
+            <div id="c-action" class="stagger-text delay-5 w-auto inline-block mb-[60px] md:mb-0 shrink-0">
                 <button id="cinematic-wa-btn" class="lux-btn flex items-center gap-4 py-3 md:py-3.5 px-8 md:px-10 rounded-sm cursor-pointer group pointer-events-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="lux-btn-content w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
                     <div class="lux-btn-content flex flex-col items-start text-left">
@@ -79,7 +79,7 @@
         </div>
 
         <!-- Navigation Layer (Bottom) -->
-        <div class="absolute bottom-6 md:bottom-10 left-0 right-0 z-50 flex items-center justify-center gap-8 md:gap-12 pointer-events-none">
+        <div class="sticky bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-8 md:gap-12 pointer-events-none py-4 pt-4 pb-5" style="background: linear-gradient(to top, rgba(13,10,5,1) 60%, rgba(13,10,5,0));">
             <button onclick="prevCinematicSlide()" class="pointer-events-auto text-brand-gold hover:text-brand-cream transition-colors p-2 hidden md:block">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>

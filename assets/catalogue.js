@@ -90,10 +90,17 @@ const cinematicData = {
 let currentCategory = null;
 let currentIdx = 0;
 let isAnimating = false;
+let savedScrollY = 0;
 
 window.openCinematicCatalogue = function(categoryId) {
   currentCategory = categoryId;
   currentIdx = 0;
+
+  savedScrollY = window.scrollY;
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100%';
+  document.body.style.top = `-${savedScrollY}px`;
 
   const overlay = document.getElementById('cinematic-overlay');
   overlay.classList.remove('hidden');
@@ -121,6 +128,11 @@ window.closeCinematicOverlay = function() {
     overlay.style.opacity = '0';
     setTimeout(() => {
         overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, savedScrollY);
         document.getElementById('collections').scrollIntoView({behavior: 'smooth'});
         currentCategory = null;
     }, 400); // matches opacity transition
