@@ -176,3 +176,12 @@
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
